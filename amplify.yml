@@ -8,6 +8,7 @@ frontend:
     build:
       commands:
         - |
+          FLAVOR="${FLAVOR:-prod}"
           __amplify_flutter_root/bin/flutter build web --dart-define=FLAVOR=$FLAVOR
   artifacts:
     baseDirectory: build/web
