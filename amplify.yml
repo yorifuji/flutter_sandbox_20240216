@@ -1,0 +1,15 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - |
+          git clone https://github.com/flutter/flutter.git --depth 1 -b 3.19.0 __amplify_flutter_root
+    build:
+      commands:
+        - |
+          __amplify_flutter_root/bin/flutter build web --dart-define=FLAVOR=prod
+  artifacts:
+    baseDirectory: build/web
+    files:
+      - "**/*"
